@@ -43,6 +43,8 @@ header {
 
 .text-heading {
     text-align: center;
+
+    animation: scaleUp 1.2s ease-out 0.1s forwards;
 }
 
 .page-title {
@@ -66,7 +68,7 @@ header {
 
 .page-description {
     color: var(--grey-500);
-    font-size: 1rem;
+    font-size: clamp(.8rem, 3vw, 1rem);
 }
 
 .card-grid-container {
@@ -86,6 +88,8 @@ header {
     -4px 15px 30px -11px hsla(215, 53%, 67%, 0.2),
     4px 15px 30px -11px hsla(215, 53%, 67%, 0.2),
     0px 15px 30px -11px hsla(215, 53%, 67%, 0.2);
+
+    animation: fadeUp 1s ease 0.1s forwards;
 }
 
 .card-title {
@@ -106,12 +110,20 @@ header {
 }
 
 
+
+
 .supervisor-box {border-top: .3rem solid var(--cyan);}
 .team-box {border-top: .3rem solid var(--red);}
 .karma-box {border-top: .3rem solid var(--orange);}
 .calculator-box {border-top: .3rem solid var(--blue);}
 
+
 @media (min-width: 768px) {
+    .page-description {
+        margin: auto;
+        max-width: 55ch;
+    }
+
     .card-grid-container {
         grid-template-columns: repeat(4, 1fr);
         grid-template-rows: repeat(3, 1fr);
@@ -168,3 +180,25 @@ header {
         grid-row: 2/4;
     }
 }
+
+@keyframes fadeUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes scaleUp {
+    from {
+        opacity: 0;
+        transform: scale(.3);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+  }
